@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DestinyLoadoutBuilder.UI", "DestinyLoadoutBuilder.UI\DestinyLoadoutBuilder.UI.csproj", "{26A047B3-01FA-443E-986F-479A05982274}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{989BC8DD-CCFF-415B-897F-CF3C736B0407}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{0DC8EA06-21FD-4CCD-A71F-D0D153D250C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Destiny2ApiServices", "Destiny2ApiServices\Destiny2ApiServices.csproj", "{04301883-4206-48FF-95B3-1F1A21C2C3F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{42A6B018-6C40-4420-B1DB-C946D99B9548}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Destiny2DataModels", "Destiny2DataModels\Destiny2DataModels.csproj", "{D8AB7B1F-DD90-44ED-BB06-560A47FA3513}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26A047B3-01FA-443E-986F-479A05982274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26A047B3-01FA-443E-986F-479A05982274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26A047B3-01FA-443E-986F-479A05982274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26A047B3-01FA-443E-986F-479A05982274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04301883-4206-48FF-95B3-1F1A21C2C3F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04301883-4206-48FF-95B3-1F1A21C2C3F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04301883-4206-48FF-95B3-1F1A21C2C3F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04301883-4206-48FF-95B3-1F1A21C2C3F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8AB7B1F-DD90-44ED-BB06-560A47FA3513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8AB7B1F-DD90-44ED-BB06-560A47FA3513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8AB7B1F-DD90-44ED-BB06-560A47FA3513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8AB7B1F-DD90-44ED-BB06-560A47FA3513}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{26A047B3-01FA-443E-986F-479A05982274} = {989BC8DD-CCFF-415B-897F-CF3C736B0407}
+		{04301883-4206-48FF-95B3-1F1A21C2C3F5} = {0DC8EA06-21FD-4CCD-A71F-D0D153D250C5}
+		{D8AB7B1F-DD90-44ED-BB06-560A47FA3513} = {42A6B018-6C40-4420-B1DB-C946D99B9548}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B09A420-CA0E-4B42-A39C-81108838357E}
+	EndGlobalSection
+EndGlobal

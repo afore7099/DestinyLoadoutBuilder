@@ -1,0 +1,18 @@
+﻿@page "/Destiny2Test"
+<h3>Destiny2Player</h3>
+@using Radzen.Blazor;
+<Radzen.Blazor.RadzenCard>
+    <div class="row">
+        <div class="col-md-6">
+            <div>Player</div>
+            <b>@Player.DisplayName</b>
+            <div style="margin-top:20px">Employee:</div>
+            <b>@Player.MembershipId</b>
+            <br />
+            <RadzenImage Path="@Player.IconPath" Style="width:100px;" />
+        </div>
+        <div class="col-md-6">
+            <div>@Player.MembershipType</div>
+        </div>
+    </div>
+</Radzen.Blazor.RadzenCard>
