@@ -1,10 +1,10 @@
-﻿using Destiny2DataModels.Models;
+﻿using DestinyLoadoutBuilder.Data.Models;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Destiny2ApiServices.Requests
+namespace DestinyLoadoutBuilder.Services.Requests
 {
     public class Destiny2APIRequestBuilder : IDestiny2APIRequestBuilder
     {

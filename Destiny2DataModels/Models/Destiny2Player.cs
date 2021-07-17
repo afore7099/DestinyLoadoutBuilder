@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Destiny2DataModels.Models
+namespace DestinyLoadoutBuilder.Data.Models
 {
     public class Destiny2Player
     {

@@ -1,7 +1,7 @@
 ﻿namespace DestinyLoadoutBuilder.UI.Pages.Destiny2PlayerComponent
 {
-    using Destiny2ApiServices.Requests;
-    using Destiny2DataModels.Models;
+    using DestinyLoadoutBuilder.Services.Requests;
+    using DestinyLoadoutBuilder.Data.Models;
     using Microsoft.AspNetCore.Components;
     using System.Net.Http;
     using System.Threading.Tasks;

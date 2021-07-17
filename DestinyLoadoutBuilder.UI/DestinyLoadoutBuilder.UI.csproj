@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Destiny2ApiServices\Destiny2ApiServices.csproj" />
-    <ProjectReference Include="..\Destiny2DataModels\Destiny2DataModels.csproj" />
+    <ProjectReference Include="..\Destiny2ApiServices\DestinyLoadoutBuilder.Services.csproj" />
+    <ProjectReference Include="..\Destiny2DataModels\DestinyLoadoutBuilder.Data.csproj" />
   </ItemGroup>
 
 </Project>

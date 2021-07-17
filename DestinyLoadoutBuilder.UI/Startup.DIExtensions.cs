@@ -1,6 +1,6 @@
 ﻿namespace DestinyLoadoutBuilder.UI
 {
-    using Destiny2ApiServices.Requests;
+    using DestinyLoadoutBuilder.Services.Requests;
     using Microsoft.Extensions.DependencyInjection;
     using System;
     using System.Net.Http;
