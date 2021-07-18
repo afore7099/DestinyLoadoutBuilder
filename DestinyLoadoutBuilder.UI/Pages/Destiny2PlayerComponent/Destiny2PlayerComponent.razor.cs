@@ -5,6 +5,8 @@
     using Microsoft.AspNetCore.Components;
     using System.Net.Http;
     using System.Threading.Tasks;
+    using System.Collections.Generic;
+
     public partial class Destiny2PlayerComponent
     {
         [Inject]
@@ -12,7 +14,12 @@
 
         [Inject]
         protected HttpClient HttpClient { get; set; }
-        public Destiny2Player Player { get; set; }
+        public D2Player Player { get; set; }
+
+        public Destiny2PlayerComponent()
+        {
+            Player = new D2Player();           
+        }
         protected override async Task OnInitializedAsync()
         {
             Player = await APIRequestBuilder.GetDestiny2PlayerAsync(HttpClient);
