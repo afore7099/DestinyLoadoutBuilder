@@ -9,7 +9,9 @@
         public static IServiceCollection AddServicesToDI(this IServiceCollection services)
         {
             services.AddScoped<IDestiny2APIRequestBuilder, Destiny2APIRequestBuilder>();
-            services.AddScoped(sp => RegisterHttpClient());
+            HttpClient httpClient = RegisterHttpClient();
+            httpClient.DefaultRequestHeaders.Add("X-API-Key", "38b396e87c31442eb119564ad36b9f90");
+            services.AddScoped(sp => httpClient);
 
             return services;
         }
@@ -18,8 +20,7 @@
         {
             HttpClient httpClient = new HttpClient()
             {
-                BaseAddress = new Uri("https://www.bungie.net/Platform"),
-               
+                BaseAddress = new Uri("https://www.bungie.net/Platform")
             };
             return httpClient;
         }

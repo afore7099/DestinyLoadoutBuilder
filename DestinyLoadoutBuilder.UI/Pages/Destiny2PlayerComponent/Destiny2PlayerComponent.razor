@@ -5,14 +5,14 @@
     <div class="row">
         <div class="col-md-6">
             <div>Player</div>
-            <b>@Player.DisplayName</b>
-            <div style="margin-top:20px">Employee:</div>
-            <b>@Player.MembershipId</b>
+            <b>@Player.Response[0].DisplayName</b>
+            <div style="margin-top:20px"></div>
+            <b>@Player.Response[0].MembershipId</b>
             <br />
-            <RadzenImage Path="@Player.IconPath" Style="width:100px;" />
+            <RadzenImage Path="@Player.Response[0].IconPath" Style="width:100px;" />
         </div>
         <div class="col-md-6">
-            <div>@Player.MembershipType</div>
+            <div>@Player.Response[0].MembershipType</div>
         </div>
     </div>
 </Radzen.Blazor.RadzenCard>

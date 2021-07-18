@@ -1,4 +1,5 @@
 ﻿using DestinyLoadoutBuilder.Data.Models;
+using DestinyLoadoutBuilder.Data.Utilities;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -13,32 +14,35 @@ namespace DestinyLoadoutBuilder.Services.Requests
         {
         }
 
-        public async Task<Destiny2Player> GetDestiny2PlayerAsync(HttpClient httpClient)
-        {
-
-            using (HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, string.Concat(httpClient.BaseAddress, "Destiny2/1/Profile/4611686018433844788?components=Characters")))
+        public async Task<D2Player> GetDestiny2PlayerAsync(HttpClient httpClient)
+        {           
+            try
             {
-                requestMessage.Headers.Add("X-API-Key", "38b396e87c31442eb119564ad36b9f90");
-                try
-                {
-                    HttpResponseMessage response = new HttpResponseMessage();
-                    response = await httpClient.SendAsync(requestMessage);
-                    response.EnsureSuccessStatusCode();
-                    Destiny2Player player = JsonConvert.DeserializeObject<Destiny2Player>(response.ToString());
-                    return player;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Error encountered: " + ex.Message);
-                }
-
+                var response = await httpClient.GetAsync(string.Concat(httpClient.BaseAddress, "/Destiny2/SearchDestinyPlayer/All/aaronf476/"));
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                D2Player player = new D2Player();
+                player = JsonConvert.DeserializeObject<D2Player>(responseBody);
+                return player;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error encountered: " + ex.Message);
             }
         }
+
+        public string GetPropertyNameFromHash(long hash)
+        {
+            string propertyName = HashFinder.GetPropertyFromHash(hash);
+            return propertyName;
+        }
+
     }
+
 
 
     public interface IDestiny2APIRequestBuilder
     {
-        Task<Destiny2Player> GetDestiny2PlayerAsync(HttpClient httpClient);
+        Task<D2Player> GetDestiny2PlayerAsync(HttpClient httpClient);
     }
 }
