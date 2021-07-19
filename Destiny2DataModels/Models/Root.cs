@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace DestinyLoadoutBuilder.Data.Models
 {
-    public class D2Player
+    public class Root
     {
         public List<Response> Response { get; set; }
         public int ErrorCode { get; set; }
@@ -12,7 +12,7 @@ namespace DestinyLoadoutBuilder.Data.Models
         public string Message { get; set; }
         public MessageData MessageData { get; set; }
 
-        public D2Player()
+        public Root()
         {
             Response = new List<Response>();
             MessageData = new MessageData();
