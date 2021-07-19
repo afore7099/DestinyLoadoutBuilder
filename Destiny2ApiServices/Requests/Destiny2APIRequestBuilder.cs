@@ -1,4 +1,5 @@
-﻿using DestinyLoadoutBuilder.Data.Models;
+﻿using DestinyLoadoutBuilder.Data.Mappers;
+using DestinyLoadoutBuilder.Data.Models;
 using DestinyLoadoutBuilder.Data.Utilities;
 using Newtonsoft.Json;
 using System;
@@ -14,15 +15,16 @@ namespace DestinyLoadoutBuilder.Services.Requests
         {
         }
 
-        public async Task<D2Player> GetDestiny2PlayerAsync(HttpClient httpClient)
-        {           
+        public async Task<Destiny2Player> GetDestiny2PlayerAsync(HttpClient httpClient)
+        {
             try
             {
                 var response = await httpClient.GetAsync(string.Concat(httpClient.BaseAddress, "/Destiny2/SearchDestinyPlayer/All/aaronf476/"));
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
-                D2Player player = new D2Player();
-                player = JsonConvert.DeserializeObject<D2Player>(responseBody);
+                Root dataFromAPI = JsonConvert.DeserializeObject<Root>(responseBody);
+                //map data to the appropriate object
+                var player = Destiny2PlayerMapper.MapDestiny2Player(dataFromAPI);
                 return player;
             }
             catch (Exception ex)
@@ -36,13 +38,10 @@ namespace DestinyLoadoutBuilder.Services.Requests
             string propertyName = HashFinder.GetPropertyFromHash(hash);
             return propertyName;
         }
-
     }
-
-
 
     public interface IDestiny2APIRequestBuilder
     {
-        Task<D2Player> GetDestiny2PlayerAsync(HttpClient httpClient);
+        Task<Destiny2Player> GetDestiny2PlayerAsync(HttpClient httpClient);
     }
 }

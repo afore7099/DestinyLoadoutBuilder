@@ -1,11 +1,10 @@
 ﻿namespace DestinyLoadoutBuilder.UI.Pages.Destiny2PlayerComponent
 {
-    using DestinyLoadoutBuilder.Services.Requests;
     using DestinyLoadoutBuilder.Data.Models;
+    using DestinyLoadoutBuilder.Services.Requests;
     using Microsoft.AspNetCore.Components;
     using System.Net.Http;
     using System.Threading.Tasks;
-    using System.Collections.Generic;
 
     public partial class Destiny2PlayerComponent
     {
@@ -14,11 +13,11 @@
 
         [Inject]
         protected HttpClient HttpClient { get; set; }
-        public D2Player Player { get; set; }
+        public Destiny2Player Player { get; set; }
 
         public Destiny2PlayerComponent()
         {
-            Player = new D2Player();           
+            Player = new Destiny2Player();           
         }
         protected override async Task OnInitializedAsync()
         {
