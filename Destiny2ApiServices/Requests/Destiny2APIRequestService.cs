@@ -1,16 +1,15 @@
-﻿using DestinyLoadoutBuilder.Data.Mappers;
-using DestinyLoadoutBuilder.Data.Models;
-using DestinyLoadoutBuilder.Data.Utilities;
-using Newtonsoft.Json;
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-
-namespace DestinyLoadoutBuilder.Services.Requests
+﻿namespace DestinyLoadoutBuilder.Services.Requests
 {
+    using DestinyLoadoutBuilder.Data.Mappers;
+    using DestinyLoadoutBuilder.Data.Models;
+    using DestinyLoadoutBuilder.Data.Utilities;
+    using Newtonsoft.Json;
+    using System;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+
     public class Destiny2APIRequestService : IDestiny2APIRequestService
     {
-
         public Destiny2APIRequestService()
         {
         }

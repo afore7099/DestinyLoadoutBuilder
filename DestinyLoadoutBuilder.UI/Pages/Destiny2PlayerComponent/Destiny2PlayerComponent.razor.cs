@@ -41,13 +41,18 @@
             await AuthService.AuthorizeWithBungie(AuthClient);
         }
 
-        //protected override async Task OnAfterRenderAsync(bool firstRender)
-        //{
-            
-        //}
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (!firstRender)
+            {
+                //get the auth token from URL 
+                await AuthService.GetOauthTokenAsync(NavigationManager.Uri);
+            }
+        }
 
         private void AuthBtnClick()
         {
+            //TODO: clean this up
             Guid stateValue = Guid.NewGuid();
             string authURI = string.Concat("https://www.bungie.net/en/oauth/authorize", "?client_id=37100&response_type=code&state=", stateValue);
             NavigationManager.NavigateTo(authURI);

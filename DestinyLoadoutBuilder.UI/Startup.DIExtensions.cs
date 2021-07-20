@@ -9,6 +9,7 @@
     {
         public static IServiceCollection AddServicesToDI(this IServiceCollection services)
         {
+            //TODO: clean this up
             services.AddScoped<IDestiny2APIRequestService, Destiny2APIRequestService>();
             services.AddScoped<IDestiny2APIAuthorizationService, Destiny2APIAuthorizationService>();
             HttpClient httpClient = RegisterHttpClient();
