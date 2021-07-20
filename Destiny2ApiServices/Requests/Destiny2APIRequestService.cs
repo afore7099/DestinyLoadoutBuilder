@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DestinyLoadoutBuilder.Services.Requests
 {
-    public class Destiny2APIRequestBuilder : IDestiny2APIRequestBuilder
+    public class Destiny2APIRequestService : IDestiny2APIRequestService
     {
 
-        public Destiny2APIRequestBuilder()
+        public Destiny2APIRequestService()
         {
         }
 
@@ -40,7 +40,7 @@ namespace DestinyLoadoutBuilder.Services.Requests
         }
     }
 
-    public interface IDestiny2APIRequestBuilder
+    public interface IDestiny2APIRequestService
     {
         Task<Destiny2Player> GetDestiny2PlayerAsync(HttpClient httpClient);
     }
