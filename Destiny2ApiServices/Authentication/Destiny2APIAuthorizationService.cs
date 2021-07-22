@@ -15,6 +15,12 @@
             _stateValue = Guid.NewGuid();
         }
 
+        /// <summary>
+        /// Sends a GET request to Bungie.net's authorization URL to receive an Authorization token
+        /// which is used to obtain authorization from their OAuth URL.
+        /// </summary>
+        /// <param name="httpClient">The injected httpclient instance</param>
+        /// <returns></returns>
         public async Task AuthorizeWithBungie(HttpClient httpClient)
         {
             try
@@ -30,6 +36,12 @@
             }
         }
 
+        /// <summary>
+        /// Sends a POST request to Bungie.net's OAuth token URL to authorize a restricted
+        /// action by the user.
+        /// </summary>
+        /// <param name="uri">The current URI</param>
+        /// <returns></returns>
         public async Task GetOauthTokenAsync(string uri)
         {
             //TODO: explore whether a brand new HttpClient instance is necessary
@@ -45,6 +57,11 @@
             await client.PostAsync("https://www.bungie.net/Platform/App/OAuth/token/", content);
         }
 
+        /// <summary>
+        /// Extracts the Authorization code from the current URI.
+        /// </summary>
+        /// <param name="uri">The current URI</param>
+        /// <returns></returns>
         private string GetAuthCodeFromURI(string uri)
         {
             Uri theUri = new Uri(uri);
@@ -53,6 +70,11 @@
             return StateValueIsValid(stateValue) ? authCode : throw new InvalidOperationException("The state value did not match the server");
         }
 
+        /// <summary>
+        /// Extracts the state value from the current URI.
+        /// </summary>
+        /// <param name="uri">The current URI</param>
+        /// <returns></returns>
         private string GetStateValueFromURI(string uri)
         {
             Uri theUri = new Uri(uri);
@@ -60,8 +82,18 @@
             return stateValue;
         }
 
+        /// <summary>
+        /// Checks the state value in the URI to be sure it is the same one that was
+        /// originally generated upon sending a request to the Authorization URL.
+        /// </summary>
+        /// <param name="state">The state value to check.</param>
+        /// <returns></returns>
         private bool StateValueIsValid(string state)
         {
+            if (Guid.Parse(state).Equals(_stateValue))
+            {
+                return true;
+            }
             return false;
         }
     }

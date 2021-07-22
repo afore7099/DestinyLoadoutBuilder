@@ -22,7 +22,7 @@
         [Inject]
         private NavigationManager NavigationManager { get; set; }
 
-        HttpClient AuthClient { get; set; }
+        private HttpClient AuthClient { get; set; }
         public Destiny2Player Player { get; set; }
 
         public Destiny2PlayerComponent()
@@ -30,27 +30,27 @@
             Player = new Destiny2Player();
             AuthClient = new HttpClient()
             {
-
                 BaseAddress = new Uri("https://www.bungie.net/en/oauth/authorize")
             };
             AuthClient.DefaultRequestHeaders.Add("X-API-Key", "38b396e87c31442eb119564ad36b9f90");
         }
+
         protected override async Task OnInitializedAsync()
         {
             //Player = await APIRequestBuilder.GetDestiny2PlayerAsync(HttpClient);
-            await AuthService.AuthorizeWithBungie(AuthClient);
+            //await AuthService.AuthorizeWithBungie(AuthClient);
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (!firstRender)
             {
-                //get the auth token from URL 
+                //get the auth token from URL
                 await AuthService.GetOauthTokenAsync(NavigationManager.Uri);
             }
         }
 
-        private void AuthBtnClick()
+        private async Task AuthBtnClick()
         {
             //TODO: clean this up
             Guid stateValue = Guid.NewGuid();
